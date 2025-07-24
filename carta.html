@@ -1,0 +1,138 @@
+<!DOCTYPE html><html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cartas VIP</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap">
+  <style>
+    body {
+      background: black;
+      color: gold;
+      font-family: 'Share Tech Mono', monospace;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px;
+    }
+    h1 {
+      color: gold;
+      margin-bottom: 20px;
+    }
+    .filter-buttons {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 30px;
+    }
+    .filter-buttons button {
+      background: none;
+      border: 1px solid gold;
+      color: gold;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 20px;
+      width: 100%;
+      max-width: 1200px;
+    }
+    .card {
+      perspective: 1000px;
+      width: 100%;
+      aspect-ratio: 3 / 2;
+    }
+    .card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transform-style: preserve-3d;
+      transition: transform 0.8s;
+      cursor: pointer;
+    }
+    .card:hover .card-inner {
+      transform: rotateY(180deg);
+    }
+    .card-front, .card-back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      border: 1px solid gold;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+    .card-front img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .card-back {
+      background: #111;
+      color: gold;
+      transform: rotateY(180deg);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 15px;
+      text-align: center;
+      font-size: 14px;
+    }
+    .hidden {
+      display: none;
+    }
+  </style>
+</head>
+<body>
+  <h1>CARTAS VIP VÓRTEX</h1>
+  <div class="filter-buttons">
+    <button onclick="filterCards('todas')">Todas</button>
+    <button onclick="filterCards('manipulacao')">⚫ Manipulação</button>
+    <button onclick="filterCards('mascara')">🟣 Máscara</button>
+    <button onclick="filterCards('amor')">🔴 Amor & Carência</button>
+  </div>  <div class="card-grid" id="cardGrid">
+    <!-- Exemplo de carta -->
+    <div class="card manipulacao">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="cartas/manipulacao1.png" alt="Manipulação 1" />
+        </div>
+        <div class="card-back">
+          Você foi programado para amar o controle disfarçado de atenção.
+        </div>
+      </div>
+    </div><div class="card mascara">
+  <div class="card-inner">
+    <div class="card-front">
+      <img src="cartas/mascara1.png" alt="Máscara 1" />
+    </div>
+    <div class="card-back">
+      Você sorri para o mundo enquanto apodrece por dentro.
+    </div>
+  </div>
+</div>
+
+<div class="card amor">
+  <div class="card-inner">
+    <div class="card-front">
+      <img src="cartas/amor1.png" alt="Amor 1" />
+    </div>
+    <div class="card-back">
+      Você não quer amor, quer alguém que alimente sua ferida sem cobrar.
+    </div>
+  </div>
+</div>
+
+  </div>  <script>
+    function filterCards(category) {
+      const cards = document.querySelectorAll('.card');
+      cards.forEach(card => {
+        if (category === 'todas') {
+          card.classList.remove('hidden');
+        } else {
+          card.classList.toggle('hidden', !card.classList.contains(category));
+        }
+      });
+    }
+  </script></body>
+</html>
