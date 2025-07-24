@@ -1,0 +1,146 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Fundo matrix vermelho */
+body {
+  background: black;
+  color: #ffd700; /* dourado */
+  font-family: 'Courier New', Courier, monospace;
+  overflow-x: hidden;
+}
+
+canvas#matrix {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+
+/* Container principal */
+.vip-container {
+  padding: 50px 20px;
+  text-align: center;
+}
+
+/* Título principal */
+.titulo-vip {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+  color: #ffd700;
+  text-shadow: 0 0 10px #ff0000;
+}
+
+/* Subtexto */
+.subtexto-vip {
+  font-size: 1.2em;
+  color: #ffaaaa;
+  margin-bottom: 40px;
+}
+
+/* Botões VIP */
+.vitrine {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.botao-vip {
+  background-color: transparent;
+  border: 2px solid #ffd700;
+  padding: 15px 30px;
+  color: #ffd700;
+  text-decoration: none;
+  font-size: 1em;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px #ffd70055;
+}
+
+.botao-vip:hover {
+  background-color: #ffd700;
+  color: black;
+  box-shadow: 0 0 20px #ff0000aa;
+}
+
+/* Estilo dos títulos internos */
+h2, h3 {
+  color: #ffcc00;
+  text-shadow: 0 0 5px #ff0000aa;
+  margin: 20px 0 10px;
+}
+
+/* Estilo para textos descritivos */
+p, li {
+  color: #f5f5f5;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+/* Layout dos conteúdos */
+.conteudo {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: #111;
+  border-radius: 10px;
+  box-shadow: 0 0 10px #ff000033;
+}
+
+/* Estilo das cartas */
+.cartas-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  justify-content: center;
+}
+
+.carta {
+  background-color: #222;
+  border: 2px solid #ffd700;
+  border-radius: 12px;
+  width: 200px;
+  padding: 10px;
+  box-shadow: 0 0 15px #ffd70033;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.carta:hover {
+  transform: scale(1.05);
+  box-shadow: 0 0 20px #ff0000aa;
+}
+
+.carta img {
+  width: 100%;
+  border-radius: 8px;
+  margin-bottom: 10px;
+}
+
+.carta p {
+  color: #ffd700;
+  font-size: 0.95em;
+  text-align: center;
+}
+
+/* Responsividade */
+@media (max-width: 600px) {
+  .botao-vip {
+    width: 100%;
+  }
+
+  .cartas-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .carta {
+    width: 90%;
+  }
+}
