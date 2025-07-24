@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Quiz Mental - Vórtex</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+  <nav class="menu-vip">
+    <a href="vip.html" class="botao-vip">🏠 Início</a>
+    <a href="manual.html" class="botao-vip">📖 Manual</a>
+    <a href="rpg.html" class="botao-vip">🎭 RPG</a>
+    <a href="quiz.html" class="botao-vip">🧠 Quiz</a>
+    <a href="cartas.html" class="botao-vip">🃏 Cartas</a>
+    <a href="criar-sombra.html" class="botao-vip">👤 Criar Sombra</a>
+  </nav>
+
+  <div class="vip-container">
+    <h1 class="titulo-vip">🧠 Quiz Mental</h1>
+    <p class="subtexto-vip">Descubra seu perfil psicológico com perguntas diretas e reveladoras.</p>
+
+    <form id="quiz-form">
+      <div class="pergunta">
+        <p>1. Quando algo dá errado, você:</p>
+        <label><input type="radio" name="q1" value="A" required /> Assume a responsabilidade</label><br />
+        <label><input type="radio" name="q1" value="B" /> Culpa os outros</label><br />
+        <label><input type="radio" name="q1" value="C" /> Ignora e segue em frente</label>
+      </div>
+
+      <div class="pergunta">
+        <p>2. Seu maior medo é:</p>
+        <label><input type="radio" name="q2" value="A" required /> Ser rejeitado</label><br />
+        <label><input type="radio" name="q2" value="B" /> Perder o controle</label><br />
+        <label><input type="radio" name="q2" value="C" /> Ficar sozinho</label>
+      </div>
+
+      <div class="pergunta">
+        <p>3. Você se considera uma pessoa:</p>
+        <label><input type="radio" name="q3" value="A" required /> Confiável</label><br />
+        <label><input type="radio" name="q3" value="B" /> Impulsiva</label><br />
+        <label><input type="radio" name="q3" value="C" /> Reservada</label>
+      </div>
+
+      <button type="submit" class="botao-vip">Ver Resultado</button>
+    </form>
+
+    <div id="resultado" style="margin-top: 30px; font-weight: bold;"></div>
+  </div>
+
+  <script>
+    const quizForm = document.getElementById('quiz-form');
+    const resultadoDiv = document.getElementById('resultado');
+
+    quizForm.addEventListener('submit', e => {
+      e.preventDefault();
+
+      const respostas = {
+        q1: quizForm.q1.value,
+        q2: quizForm.q2.value,
+        q3: quizForm.q3.value,
+      };
+
+      // Exemplo simples de pontuação: só conta quantas respostas 'A' o usuário marcou
+      let pontuacaoA = Object.values(respostas).filter(r => r === 'A').length;
+
+      let resultadoTexto = '';
+
+      if (pontuacaoA >= 2) {
+        resultadoTexto = 'Você é uma mente focada e responsável, pronta pra reprogramar seu código mental.';
+      } else if (pontuacaoA === 1) {
+        resultadoTexto = 'Você está na jornada de autoconhecimento, com pontos fortes e sombras pra explorar.';
+      } else {
+        resultadoTexto = 'Seu caminho é mais livre e rebelde, mas cuidado para não fugir da verdade interna.';
+      }
+
+      resultadoDiv.textContent = resultadoTexto;
+    });
+  </script>
+</body>
+</html>
